@@ -10,6 +10,35 @@ void swap(int *px, int *py)
     *pc = temp;
 }
 
+void f(int ROW, int COL, int i[][COL])
+{
+    for (int j = 0; j < ROW; j++)
+    {
+        for (int k = 0; k < COL; k++)
+        {
+            printf("%d ", i[j][k]);
+        }
+        printf("\n");
+    }
+}
+
+void sort(int a[], const int len, int (*compare)(int, int))
+{
+    for (int i = 0; i < len - 1; i++)
+    {
+        for (int j = 0; j < len - 1; j++)
+        {
+            if ((*compare)(a[j], a[j + 1]))
+            {
+                int temp = a[j];
+                a[j] = a[j + 1], a[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int inc(int a, int b) { return a > b ? 1 : 0; }
+
 int main(void)
 {
     int c[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -29,4 +58,14 @@ int main(void)
     printf("%p = %d, %p = %d\n", pa, *pa, pb, *pb);
     swap(pa, pb);
     printf("%p = %d, %p = %d\n", pa, *pa, pb, *pb);
+
+    int matrix[5][5] = {0};
+    f(5, 5, matrix);
+
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 3, 2, 1, 4, 9, 8};
+    sort(a, sizeof(a) / sizeof(int), &inc);
+    for (int i = 0; i < sizeof(a) / sizeof(int); i++)
+    {
+        printf("%d ", a[i]);
+    }
 }
