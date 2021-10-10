@@ -11,9 +11,8 @@ void reverse_substring(char str[], int start, int end)
   while (i < j)
   {
     char temp = str[i];
-    str[i] = str[j];
-    str[j] = temp;
-    i++, j--;
+    str[i++] = str[j];
+    str[j--] = temp;
   }
 }
 
@@ -22,7 +21,7 @@ int find_next_start(char str[], int len, int i)
   /* takes a string str with length and index i, 
      returns the index k which is the starting position of the next word
     begining at index i or later */
-  int k = (((i == 0) && str[i] != ' ') || (i - 1 >= 0 && str[i - 1] == ' ')) ? i : -1;
+  int k = (((i == 0) && str[i] != ' ') || (i >= 1 && str[i - 1] == ' ')) ? i : -1;
   if (k == -1)
   {
     while (str[i] != ' ' && i < strlen(str))
