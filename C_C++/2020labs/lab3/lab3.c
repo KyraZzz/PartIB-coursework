@@ -26,7 +26,7 @@ int main(void)
   int n = sum(test);
   printf("Sum = %d\n", n);
 
-  /* The challenge problems -- uncomment this to run */
+  /* The challenge problems */
   test = mergesort2(test);
   print_list(test);
 
