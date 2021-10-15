@@ -21,10 +21,10 @@ int find_next_start(char str[], int len, int i)
   /* takes a string str with length and index i, 
      returns the index k which is the starting position of the next word
     begining at index i or later */
-  int k = (((i == 0) && str[i] != ' ') || (i >= 1 && str[i - 1] == ' ')) ? i : -1;
+  int k = (((i == 0) && isalpha(str[i])) || (i >= 1 && isalpha(str[i - 1]))) ? i : -1;
   if (k == -1)
   {
-    while (str[i] != ' ' && i < strlen(str))
+    while (isalpha(str[i]) && i < strlen(str))
     {
       i++;
     }
@@ -37,7 +37,7 @@ int find_next_end(char str[], int len, int i)
 {
   /* string str and length and index i, return the first index k past the end of the word starting at i */
   int k = i;
-  while (str[i] != ' ' && str[i] != '\0')
+  while (isalpha(str[i]))
   {
     k = i++;
   }
