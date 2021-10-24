@@ -97,7 +97,6 @@ matrix_t matrix_multiply_fast(matrix_t m1, matrix_t m2)
   matrix_t transposed_m2 = matrix_transpose(m2);
   matrix_t result = matrix_multiply_transposed(m1, transposed_m2);
   matrix_free(m2);
-  printf("Successfully freed m2.");
   return result;
 }
 
