@@ -84,8 +84,8 @@ int main(void)
   matrix_test();
   /* Once you get the expected output for matrix_test(), run this
      code to see which matrix multiplication routine is faster. */
-  matrix_t m1 = matrix_create(500, 500);
-  matrix_t m2 = matrix_create(500, 500);
+  matrix_t m1 = matrix_create(200, 200);
+  matrix_t m2 = matrix_create(200, 200);
   time_it(matrix_multiply, m1, m2, "matrix_multiply");
   time_it(matrix_multiply_fast, m1, m2, "matrix_multiply_fast");
   // matrix_free(m1); // why freeing m1 and m2 gives me an error of pointer being freed was not allocated?
