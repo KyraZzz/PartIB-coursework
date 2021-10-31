@@ -6,13 +6,17 @@ public class wrong {
             if (o <= 0) {
                 throw new IllegalArgumentException("Input must be positive.");
             }
-            System.out.printf("Age in days = %f", o * 365.25);
+            System.out.printf("Age in days = %2f", o * 365.25);
         } catch (IllegalArgumentException e) {
             System.out.println(e);
         }
     }
 
     public static void main(String[] args) {
-        oldness(Integer.parseInt(args[0]));
+        try {
+            oldness(Integer.parseInt(args[0]));
+        } catch (NumberFormatException e) {
+            System.out.println("Error parsing arguments");
+        }
     }
 }
