@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/FJ_ticks.iml" filepath="$PROJECT_DIR$/.idea/FJ_ticks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/further_java_ticklet_1/further_java_ticklet_1.iml" filepath="$PROJECT_DIR$/further_java_ticklet_1/further_java_ticklet_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/further_java_ticklet_1star/further_java_ticklet_1star.iml" filepath="$PROJECT_DIR$/further_java_ticklet_1star/further_java_ticklet_1star.iml" />
+      <module fileurl="file://$PROJECT_DIR$/further_java_ticklet_2/further_java_ticklet_2.iml" filepath="$PROJECT_DIR$/further_java_ticklet_2/further_java_ticklet_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/further_java_ticklet_3/further_java_ticklet_3.iml" filepath="$PROJECT_DIR$/further_java_ticklet_3/further_java_ticklet_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/further_java_ticklet_4/further_java_ticklet_4.iml" filepath="$PROJECT_DIR$/further_java_ticklet_4/further_java_ticklet_4.iml" />
+    </modules>
+  </component>
+</project>
