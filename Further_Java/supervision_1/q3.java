@@ -1,4 +1,4 @@
-package supervision_1;
+package Further_Java.supervision_1;
 
 // Runnable interface
 class ExpThread1 implements Runnable {

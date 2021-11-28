@@ -1,4 +1,4 @@
-package supervision_1;
+package Further_Java.supervision_1;
 
 import java.io.BufferedReader;
 import java.io.IOException;

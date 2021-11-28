@@ -1,4 +1,4 @@
-package supervision_1;
+package Further_Java.supervision_1;
 
 public class wrong {
     public static void oldness(int o) {
