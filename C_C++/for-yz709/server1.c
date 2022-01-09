@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     FILE *fp;
     struct sockaddr_in server;
 
-    if (argc != 2)
+    if (argc != 3)
     {
         puts("Usage: server <port> <file>");
         return 1;
@@ -62,13 +62,11 @@ int main(int argc, char *argv[])
             return 6;
         }
 
-        while (!feof(fp))
+        while (!feof(fp)) // not end of file
         {
             char bytes[BUFSIZE];
-            int r, w;
-
-            r = fread(bytes, sizeof(char), BUFSIZE, fp);
-
+            int r = fread(bytes, sizeof(char), BUFSIZE, fp);
+            int w = 0;
             while (w < r)
             {
                 int total = write(connfd, bytes, r);
@@ -86,4 +84,5 @@ int main(int argc, char *argv[])
 
         return 0;
     }
-    // yz709  watermark=1fe31d31563be2477ef90224070f5127
+}
+// yz709  watermark=1fe31d31563be2477ef90224070f5127

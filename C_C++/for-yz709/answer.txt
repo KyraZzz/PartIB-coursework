@@ -1,6 +1,31 @@
 Exercise-part1
 Q1: intended functionality of two programs `server.c` and `client.c` (in 100 words)?
-A1: TODO
+A1: 
+    - `server.c` creates a server socket on a particular port, listening for client connections. 
+        Once it accpts a client connection, it creates a socket, reads the file and 
+        writes the file contents into the socket stream buffer.
+    - `client.c` attempts to connect to the same port the server is listening on. 
+        Once connection established, the client can read the contents from the socket stream buffer, 
+        and print the contents to the stdout (the console).
 
 Q2: find three programming errors in the code.
 A2: 
+    - 1. in the `server.c` file, we require 3 input arguments, but it says 2 in code below.
+    \*
+    if (argc != 2)
+    {
+        puts("Usage: server <port> <file>");
+        return 1;
+    }
+    *\
+
+    - 2. in the `server.c` file, the int main(int argc, char *argv) function lacks one closing parenthese.
+    - 3. in the `server.c` file, the variable `w` is not initialised when used in the while loop.
+    \*
+    int r, w;
+    r = fread(bytes, sizeof(char), BUFSIZE, fp);
+    while (w < r) {...}
+    *\
+
+Q3: how the request is being served and how the brower is interpreting the response?
+A3: TODO
