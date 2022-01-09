@@ -1,0 +1,6 @@
+Exercise-part1
+Q1: intended functionality of two programs `server.c` and `client.c` (in 100 words)?
+A1: TODO
+
+Q2: find three programming errors in the code.
+A2: 
