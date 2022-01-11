@@ -15,6 +15,10 @@ extern "C"
         uint32_t destination;
         // data offset in TCP header: 4 bits
         uint8_t data_offset;
+        // data length
+        int data_length;
+        // packet data
+        char *data;
         Packet *next;
     };
 

@@ -79,10 +79,8 @@ int main(int argc, char *argv[])
             }
         }
         fseek(fp, 0, SEEK_SET);
-
         close(connfd);
-
-        return 0;
     }
+    return 0;
 }
 // yz709  watermark=1fe31d31563be2477ef90224070f5127

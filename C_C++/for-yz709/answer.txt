@@ -26,6 +26,11 @@ A2:
     r = fread(bytes, sizeof(char), BUFSIZE, fp);
     while (w < r) {...}
     *\
+    - 4. in the `server.c` file, you should add `return 0` outside for loop.
 
 Q3: how the request is being served and how the brower is interpreting the response?
-A3: TODO
+A3: The server is listening on port 2080 using a server socket, the browser tab acts as a client, attempt to connect to the port 2080.
+    Once the server socket observes a client, it creates a new socket to handle the client requests.
+    Once the connection is established, the server reads the input file, sends the message to the buffer of the connection, the message contains a packet stream,
+    each packet contains metadata (e.g., IP header and TCP header) and the data contents. The browser will strip the metadata,
+    only presenting the data contents.
