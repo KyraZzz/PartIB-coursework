@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #include "pcolparse.h"
 
 #if HAVE_BYTESWAP_H
@@ -21,6 +22,8 @@
 
 Packet *parse_packet(char *filename)
 {
+    int n = 1;
+    bool isLittleEndian = *(char *)&n == 1;
     FILE *fp;
     if ((fp = fopen(filename, "rb")) == 0)
     {
@@ -41,15 +44,21 @@ Packet *parse_packet(char *filename)
 
         // only need the last 4 bits of the first byte
         current->IHL = (uint8_t)bytes[0] & 0x0F;
-        // read bytes[2] + bytes[3] for tot_len, need to reverse the order because of little endian
+        // read bytes[2] + bytes[3] for tot_len
         memcpy(&(current->tot_len), &(bytes[2]), 2);
-        current->tot_len = bswap_16(current->tot_len);
-        // read bytes[12] ~ bytes[15] for source, need to reverse the order because of little endian
+
+        // read bytes[12] ~ bytes[15] for source
         memcpy(&(current->source), &(bytes[12]), 4);
-        current->source = bswap_32(current->source);
-        // read bytes[16] ~ bytes[19] for destination, need to reverse the order because of little endian
+        // read bytes[16] ~ bytes[19] for destination
         memcpy(&(current->destination), &(bytes[16]), 4);
-        current->destination = bswap_32(current->destination);
+
+        // need to reverse the order if machine is of little endian
+        if (isLittleEndian)
+        {
+            current->tot_len = bswap_16(current->tot_len);
+            current->source = bswap_32(current->source);
+            current->destination = bswap_32(current->destination);
+        }
 
         // IHL: how many 32-bit(4-byte) words are present in the IP header
         // so we need to skip the remaining IP header bytes using IHL * 4 - IPHMINSIZE
