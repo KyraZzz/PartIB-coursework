@@ -6,7 +6,7 @@
 arena_t create_arena(int size)
 {
   /* Create a new arena */
-  arena_t arena = malloc(sizeof(arena));
+  arena_t arena = malloc(sizeof(struct arena));
   arena->size = size;
   arena->current = 0;
   arena->exps = malloc(size * sizeof(Regexp));
@@ -42,7 +42,7 @@ Regexp *re_chr(arena_t a, char c)
   Regexp *pos = re_alloc(a);
   if (pos != NULL)
   {
-    pos = malloc(sizeof(Regexp));
+    // pos = malloc(sizeof(Regexp));
     pos->type = CHR;
     pos->data.chr = c;
     return pos;
@@ -61,7 +61,7 @@ Regexp *re_alt(arena_t a, Regexp *r1, Regexp *r2)
   Regexp *pos = re_alloc(a);
   if (pos != NULL)
   {
-    pos = malloc(sizeof(Regexp));
+    // pos = malloc(sizeof(Regexp));
     pos->type = ALT;
     pos->data.pair.fst = r1;
     pos->data.pair.snd = r2;
@@ -81,7 +81,7 @@ Regexp *re_seq(arena_t a, Regexp *r1, Regexp *r2)
   Regexp *pos = re_alloc(a);
   if (pos != NULL)
   {
-    pos = malloc(sizeof(Regexp));
+    // pos = malloc(sizeof(Regexp));
     pos->type = SEQ;
     pos->data.pair.fst = r1;
     pos->data.pair.snd = r2;
