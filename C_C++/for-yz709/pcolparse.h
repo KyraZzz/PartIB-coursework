@@ -2,6 +2,7 @@
 extern "C"
 {
 #endif
+#include <stdint.h>
     typedef struct Packet Packet;
     struct Packet
     {

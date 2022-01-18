@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 #include "pcolparse.h"
 
 void print_IP_addr(uint32_t ip)
