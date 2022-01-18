@@ -71,7 +71,6 @@ int main(void)
   printf("size(graph1) = %d\n", size(graph1));
   printf("%d\n", graph1->value);
   graph_free(graph1);
-  printf("%d\n", graph1->value);
   printf("Freed graph1\n");
   graph_free(graph2);
   printf("Freed graph2\n");

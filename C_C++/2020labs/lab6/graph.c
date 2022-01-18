@@ -81,7 +81,6 @@ static int get_nodes_util(Node *node, Node **dest, int i)
   {
     return i;
   }
-
   dest[i++] = node;
   node->marked = true;
   i = get_nodes_util(node->left, dest, i);
@@ -106,16 +105,23 @@ void graph_free(Node *node)
   {
     unmark(node);
   }
+  int maxSize = size(node);
+  if (node->marked)
+  {
+    unmark(node);
+  }
+  Node *dest[maxSize];
+  /* cannot use malloc because it is dynamically allocated on heap
   Node **dest = malloc(sizeof(Node) * size(node));
   for (int i = 0; i < size(node); i++)
   {
     dest[i] = NULL;
   }
+  */
   get_nodes(node, dest);
   int cnt = 0;
-  while (dest[cnt] != NULL)
+  while (cnt < maxSize)
   {
-    free(dest[cnt]);
+    free(dest[cnt++]);
   }
-  free(dest);
 }
