@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
+extern "C"
+{
 #include "pcolparse.h"
+}
 using namespace std;
 
 int main(int argc, char *argv[])

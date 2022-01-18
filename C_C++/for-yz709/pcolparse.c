@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include "pcolparse.h"
 
 #if HAVE_BYTESWAP_H

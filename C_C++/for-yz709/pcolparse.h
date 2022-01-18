@@ -27,6 +27,7 @@ extern "C"
 
     /* free the packet linked list */
     void free_packet(Packet *header);
+
 #ifdef __cplusplus
 }
 #endif
