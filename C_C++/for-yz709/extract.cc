@@ -1,9 +1,8 @@
-#include <iostream>
-#include <fstream>
 extern "C"
 {
 #include "pcolparse.h"
 }
+#include <cstdio>
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -16,22 +15,25 @@ int main(int argc, char *argv[])
         puts("Usage: extract <logfile> <filename>");
         return 1;
     }
-    ifstream fin(argv[1]);
-    ofstream fout(argv[2], ios::trunc);
-    if (fin.fail())
+    FILE *fin;
+    FILE *fout;
+    fin = fopen(argv[1], "r");
+    fout = fopen(argv[2], "w");
+    if (!fin)
     {
         puts("Error opening log file, log file does not exist");
         return 2;
     }
+    int c;
     Packet *header = parse_packet(argv[1]);
     while (header != NULL)
     {
         for (int i = 0; i < header->data_length; i++)
         {
-            fout << header->data[i];
+            fputc(header->data[i], fout);
         }
         header = header->next;
     }
-    fin.close();
-    fout.close();
+    fclose(fin);
+    fclose(fout);
 }
