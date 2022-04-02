@@ -2,4 +2,4 @@
 len([],0).
 len([_|T],N) :- len(T,M), N is M + 1.
 
-:- len(A,2), print(A), nl.
+:- len([1,2,3],A), len(B,2), print(A), print(B), nl.
