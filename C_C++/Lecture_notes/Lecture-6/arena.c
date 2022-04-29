@@ -35,7 +35,7 @@ Tree *node(int value, Tree *left, Tree *right, arena_t arena)
 {
     if (arena->current < arena->size)
     {
-        Tree *t = arena->elts + (arena->current); // access the i^th tree if current is the i
+        Tree *t = &((arena->elts)[arena->current]); // access the i^th tree if current is the i
         arena->current += 1;
         t->value = value, t->left = left, t->right = right;
         printf("value: %d\n", (arena->elts + (arena->current) - 2)->value);

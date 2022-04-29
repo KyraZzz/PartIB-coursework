@@ -1,7 +1,7 @@
 :- ['gcd.pl'].
 minimalDiv(div(A,1),A).
 minimalDiv(div(A,-1),B) :- B is -1 * A.
-minimalDiv(div(A,A)).
+minimalDiv(A,A).
 simplify(div(A,B),R) :- gcd(A,B,GCD), Av is A / GCD, Bv is B / GCD, minimalDiv(div(Av,Bv),R), !.
 
 % reduce(A,B) succeeds if the symbolic expression A evaluates to B
