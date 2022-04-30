@@ -43,7 +43,7 @@ test_boxes([A1,A2,A3,A4,A5,A6,A7,A8,A9],
 		   									test_digits([A7,A8,A9,B7,B8,B9,C7,C8,C9]).
 
 % solve(A,B,C,D,E,F,G,H,I) procedure:
-% 	generate numbers for each row, ensure each contains 1 - 9
+% 	generate numbers for each row, ensure each contains 0 - 9
 % 	test the columns
 %	test the 3 * 3 boxes once all entry in that box is initiated
 solve(A,B,C,D,E,F,G,H,I) :- 
