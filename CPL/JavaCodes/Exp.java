@@ -1,4 +1,4 @@
-package CPL;
+package CPL.JavaCodes;
 
 public class Exp {
     private int tag;
