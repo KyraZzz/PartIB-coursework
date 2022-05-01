@@ -1,0 +1,8 @@
+(load "and.lisp")
+(load "null.lisp")
+(load "not.lisp")
+; (pair. '(x y z) '(a b c)) outputs ((x a) (y b) (z c))
+(defun pair. (x y)
+    (cond ((and. (null. x) (null. y)) '())
+        ((and. (not. (atom x)) (not. (atom y)))
+            (cons (list (car x) (car y)) (pair. (cdr x) (cdr y))))))
